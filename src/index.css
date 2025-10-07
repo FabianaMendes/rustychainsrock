@@ -1,0 +1,264 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Rusty Chains Dark Grunge Theme */
+    --background: 0 0% 0%;
+    --foreground: 0 0% 96%;
+
+    --card: 0 0% 0%;
+    --card-foreground: 0 0% 96%;
+
+    --popover: 0 0% 0%;
+    --popover-foreground: 0 0% 96%;
+
+    --primary: 18 93% 38%; /* Rust orange #B7410E */
+    --primary-foreground: 0 0% 0%;
+
+    --secondary: 0 0% 13%; /* Dark support #3B2F2F -> adjusted for better contrast */
+    --secondary-foreground: 0 0% 96%;
+
+    --muted: 0 0% 8%; 
+    --muted-foreground: 0 0% 65%;
+
+    --accent: 15 100% 27%; /* Dark rust #8B2500 */
+    --accent-foreground: 0 0% 96%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 96%;
+
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 18 93% 38%;
+
+    --radius: 0.5rem;
+
+    /* Custom Grunge Variables */
+    --rust-primary: 18 93% 38%;
+    --rust-dark: 15 100% 27%;
+    --metal-dark: 0 0% 8%;
+    --chain-gray: 0 0% 23%;
+    
+    /* Gradients */
+    --gradient-rust: linear-gradient(135deg, hsl(var(--rust-primary)), hsl(var(--rust-dark)));
+    --gradient-metal: linear-gradient(180deg, hsl(var(--background)), hsl(var(--metal-dark)));
+    
+    /* Shadows */
+    --shadow-rust: 0 10px 30px -10px hsl(var(--rust-primary) / 0.4);
+    --shadow-heavy: 0 20px 50px -20px hsl(0 0% 0% / 0.8);
+    
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-grunge: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Already optimized for dark theme */
+    --background: 0 0% 0%;
+    --foreground: 0 0% 96%;
+
+    --card: 0 0% 0%;
+    --card-foreground: 0 0% 96%;
+
+    --popover: 0 0% 0%;
+    --popover-foreground: 0 0% 96%;
+
+    --primary: 18 93% 38%;
+    --primary-foreground: 0 0% 0%;
+
+    --secondary: 0 0% 13%;
+    --secondary-foreground: 0 0% 96%;
+
+    --muted: 0 0% 8%;
+    --muted-foreground: 0 0% 65%;
+
+    --accent: 15 100% 27%;
+    --accent-foreground: 0 0% 96%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 96%;
+
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 18 93% 38%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-inter;
+    font-family: 'Inter', 'Oswald', sans-serif;
+  }
+
+  /* Grunge Typography */
+  .font-grunge {
+    font-family: 'Bebas Neue', 'Oswald', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .font-heavy {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+  }
+
+  /* Grunge Effects */
+  .text-rust {
+    background: var(--gradient-rust);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .grain-overlay {
+    position: relative;
+  }
+
+  .grain-overlay::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      radial-gradient(circle at 1px 1px, rgba(255,255,255,0.05) 1px, transparent 0);
+    background-size: 20px 20px;
+    pointer-events: none;
+    mix-blend-mode: overlay;
+  }
+
+  .parallax-container {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+  }
+
+  .parallax-element {
+    transform: translateZ(-1px) scale(2);
+  }
+}
+
+@layer components {
+  /* Hero Button Variant */
+  .btn-hero {
+    @apply bg-gradient-to-r from-primary to-accent text-primary-foreground font-grunge text-lg px-8 py-4 rounded-none border-2 border-primary hover:border-accent transition-all duration-300 hover:shadow-[var(--shadow-rust)] hover:scale-105 uppercase tracking-wider;
+  }
+
+  /* Section Styling */
+  .section-grunge {
+    @apply relative py-20 overflow-hidden;
+  }
+
+  .section-grunge::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(180deg, transparent 0%, hsl(var(--metal-dark) / 0.3) 100%);
+    pointer-events: none;
+  }
+
+  /* Card Variants */
+  .card-grunge {
+    @apply bg-card/50 backdrop-blur-sm border border-border/30 rounded-sm p-6 transition-all duration-500 hover:border-primary/50 hover:shadow-[var(--shadow-heavy)];
+  }
+
+  /* Link Animations */
+  .link-grunge {
+    @apply relative inline-block font-heavy uppercase tracking-wide transition-colors duration-300 hover:text-primary;
+  }
+
+  .link-grunge::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background: var(--gradient-rust);
+    transition: width 0.3s ease-out;
+  }
+
+  .link-grunge:hover::after {
+    width: 100%;
+  }
+
+  /* Scroll Indicator */
+  .scroll-indicator {
+    @apply animate-bounce text-primary opacity-80;
+  }
+}
+
+/* Keyframes for custom animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes textGlow {
+  0%, 100% {
+    text-shadow: 0 0 5px hsl(var(--rust-primary) / 0.5);
+  }
+  50% {
+    text-shadow: 0 0 20px hsl(var(--rust-primary) / 0.8);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.8s ease-out forwards;
+}
+
+.animate-text-glow {
+  animation: textGlow 2s ease-in-out infinite;
+}
