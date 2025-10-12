@@ -8,33 +8,34 @@ const BandMembersSection = () => {
     icon: <Mic className="text-rust-primary" size={32} />,
     description: "Com mais de 10 anos de experiência em shows ao vivo, conhecido por sua energia no palco.",
     highlight: "A voz que dá vida às correntes da Rusty Chains",
-    experience: "10+ anos",
-    position: "left-[5%] top-[20%]"
+    position: "left-[33%] top-[13%]",
+    tooltipPosition: "-translate-x-1/2"
   }, {
     name: "Raphael Danneman", 
     role: "Guitarrista",
     icon: <Guitar className="text-rust-primary" size={32} />,
     description: "12 anos de experiência na guitarra. Influências: Alice in Chains, Tool e Black Sabbath.",
     highlight: "O som pesado que define nossa identidade",
-    experience: "12 anos",
-    position: "left-[25%] top-[15%]"
+    position: "left-[12%] top-[20%]",
+    tooltipPosition: "-translate-x-1/4"
   }, {
     name: "Fabiana Mendes",
     role: "Baterista", 
     icon: <Music className="text-rust-primary" size={32} />,
     description: "Vive seu momento mais intenso de dedicação ao instrumento. Influências do metal ao progressivo.",
     highlight: "Nunca é tarde para seguir o que faz a alma vibrar",
-    experience: "Dedicação intensa",
-    position: "right-[25%] top-[18%]"
+    position: "right-[42%] top-[18%]",
+    tooltipPosition: "-translate-x-1/2"
   }, {
     name: "Luciano",
     role: "Baixista",
     icon: <Users className="text-rust-primary" size={32} />,
     description: "6 anos de experiência. Base sólida que mistura peso e groove, do nu metal ao stoner.",
     highlight: "Técnica, improviso e sonoridade crua",
-    experience: "6 anos", 
-    position: "right-[5%] top-[12%]"
+    position: "right-[20%] top-[12%]",
+    tooltipPosition: "-translate-x-2/3"
   }];
+
   return <section className="section-grunge bg-metal-dark/10">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
@@ -44,7 +45,7 @@ const BandMembersSection = () => {
           
           {/* Interactive Band Photo */}
           <div className="relative mb-16 group">
-            <div className="card-grunge overflow-hidden">
+            <div className="card-grunge overflow-visible">
               <img 
                 src={bandPhoto} 
                 alt="Rusty Chains Band Members" 
@@ -57,9 +58,10 @@ const BandMembersSection = () => {
                   key={index}
                   className={`absolute ${member.position} group/member`}
                 >
-                  <div className="w-4 h-4 bg-rust-primary rounded-full animate-pulse cursor-pointer hover:scale-150 transition-transform duration-300 relative">
+                  <div className="relative group/member">
+                    <div className="w-4 h-4 bg-rust-primary rounded-full animate-pulse cursor-pointer hover:scale-140 transition-transform duration-300"/>
                     {/* Tooltip */}
-                    <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 opacity-0 group-hover/member:opacity-100 transition-opacity duration-300 z-10">
+                    <div className={`absolute bottom-6 ${member.tooltipPosition} left-1/2 transform hidden group-hover/member:block transition-opacity duration-300 z-10`}>
                       <div className="bg-background/95 border border-rust-primary/30 rounded-lg p-3 min-w-64 backdrop-blur-sm">
                         <div className="flex items-center gap-2 mb-2">
                           {member.icon}
@@ -73,6 +75,7 @@ const BandMembersSection = () => {
                       </div>
                     </div>
                   </div>
+
                 </div>
               ))}
             </div>
@@ -87,7 +90,7 @@ const BandMembersSection = () => {
           </div>
 
           {/* Member Cards Grid */}
-          <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-6 px-4">
             {members.map((member, index) => (
               <div key={index} className="card-grunge relative group hover:scale-105 transition-all duration-300">
                 <div className="flex flex-col items-center text-center p-6">

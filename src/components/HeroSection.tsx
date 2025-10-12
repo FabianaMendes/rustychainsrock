@@ -39,7 +39,7 @@ const HeroSection = () => {
           
           <p className="text-xl md:text-2xl mb-8 font-heavy text-foreground/90 max-w-2xl mx-auto leading-relaxed">GRUNGE</p>
           
-          <p className="text-lg mb-12 text-muted-foreground max-w-xl mx-auto">Formada em Uberlândia-MG no final de 2024, revivendo a atmosfera densa do GRUNGRdos anos 90</p>
+          <p className="text-lg mb-12 text-muted-foreground max-w-xl mx-auto">Formada em Uberlândia-MG no final de 2024, revivendo a atmosfera densa do GRUNGE dos anos 90</p>
 
           <a href="https://wa.me/5534991510660?text=Olá! Gostaria de contratar a Rusty Chains para um evento." target="_blank" rel="noopener noreferrer" className="btn-hero inline-block mb-16">
             Contratar Agora
@@ -47,7 +47,7 @@ const HeroSection = () => {
         </div>
 
         {/* Scroll indicator */}
-        <button onClick={scrollToAbout} className="scroll-indicator absolute bottom-8 left-1/2 transform -translate-x-1/2" aria-label="Scroll to about section">
+        <button onClick={scrollToAbout} className="scroll-indicator -mt-12 flex items-center justify-center w-full" aria-label="Scroll to about section">
           <ChevronDown size={32} />
         </button>
       </div>

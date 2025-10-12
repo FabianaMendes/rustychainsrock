@@ -1,7 +1,7 @@
 import mascot from '@/assets/mascot-real.png';
 const AboutSection = () => {
   return <section id="about" className="section-grunge">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="animate-slide-in-left">
             <h2 className="font-grunge text-4xl md:text-5xl mb-8 text-rust-primary">
@@ -16,10 +16,10 @@ const AboutSection = () => {
                 marcante, com a energia crua que define o rock alternativo dessa era.
               </p>
               
-              <p className="text-muted-foreground">Cada música resscom a autenticidade que o grunge sempre representou.</p>
+              <p className="text-muted-foreground">Cada música com a autenticidade que o grunge sempre representou.</p>
               
               <p className="text-foreground/90">
-                Do underground de Uberlândia para os palcos do Brasil, <span className="text-rust-primary font-heavy">Rusty Chains</span> 
+                Do underground de Uberlândia para os palcos do Brasil, <span className="text-rust-primary font-heavy">Rusty Chains </span> 
                 promete entregar uma experiência sonora intensa e verdadeira para todos os amantes 
                 do rock alternativo.
               </p>

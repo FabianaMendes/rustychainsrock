@@ -3,9 +3,9 @@ import { Play, Youtube, ExternalLink } from 'lucide-react';
 const VideosSection = () => {
   const videos = [
     {
-      id: "fMxX_Lc2Y5M",
-      title: "Killing in the Name - RATM (Cover)",
-      description: "Nossa versão pesada do clássico do Rage Against The Machine",
+      id: "1NqGDd2TsDY",
+      title: "Shadow On The Sun - Audioslave (Cover)",
+      description: "Cover visceral de um clássico existencial do Audioslave",
       isShorts: true
     },
     {
@@ -29,7 +29,7 @@ const VideosSection = () => {
             Assista Rusty Chains
           </h2>
           
-          <div className="grid lg:grid-cols-2 gap-8 mb-12">
+          <div className="grid lg:grid-cols-2 gap-8 mb-12 px-4">
             {videos.map((video, index) => (
               <div key={index} className="card-grunge relative group overflow-hidden hover:scale-[1.02] transition-all duration-500">
                 <div className="relative">

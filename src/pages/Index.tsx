@@ -20,7 +20,7 @@ const Index = () => {
         <BandMembersSection />
         <VideosSection />
         <MediaKitSection />
-        <TestimonialsSection />
+        {/* <TestimonialsSection /> */}
         <ContactSection />
       </main>
       <Footer />

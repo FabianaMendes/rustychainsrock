@@ -1,5 +1,5 @@
 import { ChevronUp, Link2 } from 'lucide-react';
-import logo from '@/assets/logo.png';
+import logo from '@/assets/logo-header.png';
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -32,7 +32,7 @@ const Footer = () => {
               <p className="text-sm text-muted-foreground">
                 © 2024 Rusty Chains. Todos os direitos reservados.
               </p>
-              <p className="text-xs text-muted-foreground mt-1">
+              <p className="text-xs text-muted-foreground mt-1 text-center">
                 Formada em Uberlândia-MG • Brasil
               </p>
             </div>

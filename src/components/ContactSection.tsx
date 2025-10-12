@@ -33,7 +33,7 @@ const ContactSection = () => {
                   Luciano: (34) 99115-2568
                 </a>
                 <a href="https://wa.me/5534988844224" target="_blank" rel="noopener noreferrer" className="block hover:text-rust-primary transition-colors">
-                  Faby: (34) 98884-4224
+                  Fabi: (34) 98884-4224
                 </a>
               </div>
             </div>
@@ -44,11 +44,11 @@ const ContactSection = () => {
               <p className="text-muted-foreground text-sm">rustychainsrock@gmail.com</p>
             </a>
 
-            <div className="card-grunge group cursor-default">
+            <a href="https://www.youtube.com/@RustyChainsRock" target="_blank" rel="noopener noreferrer" className="card-grunge hover:border-rust-primary/50 transition-all duration-300 group">
               <Youtube className="text-rust-primary mx-auto mb-4" size={48} />
               <h3 className="font-grunge text-xl text-foreground mb-2">YouTube</h3>
-              <p className="text-muted-foreground text-sm">Em breve</p>
-            </div>
+              <p className="text-muted-foreground text-sm">@RustyChainsRock</p>
+            </a>
           </div>
 
           <div className="card-grunge max-w-2xl mx-auto">
