@@ -2,6 +2,7 @@ import { ChevronDown } from 'lucide-react';
 import heroBackground from '@/assets/hero-background.jpg';
 import mascot from '@/assets/mascot-real.png';
 import logo from '@/assets/logo-real.png';
+import { useEffect } from 'react';
 const HeroSection = () => {
   const scrollToAbout = () => {
     const element = document.getElementById('about');
@@ -11,22 +12,45 @@ const HeroSection = () => {
       });
     }
   };
-  return <section className="min-h-screen flex items-center justify-center relative overflow-hidden grain-overlay parallax-container" style={{
-    backgroundImage: `url(${heroBackground})`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    backgroundAttachment: 'fixed'
-  }}>
+
+  function backgroundMovement() {
+    const heroBackground = document.querySelector("#hero-bg") as HTMLDivElement
+    const yOffset = window.pageYOffset;
+    const newYPosition = `center calc(50% + ${yOffset}px)`
+    heroBackground.style.backgroundPosition = newYPosition;
+  }
+
+  useEffect(() => {
+    document.addEventListener("scroll", backgroundMovement);
+    return () => {
+      document.removeEventListener("scroll", backgroundMovement)
+    }
+  }, [])
+  
+  return (
+    <section
+      id="hero-bg"
+      className="h-screen flex items-center justify-center relative overflow-hidden grain-overlay parallax-container"
+      style={{
+        backgroundImage: `url(${heroBackground})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center center',
+        // backgroundAttachment: 'fixed', causa bug no mobile
+      }}
+    >
       {/* Dark overlay */}
       <div className="absolute inset-0 bg-background/60 backdrop-blur-[2px]" />
       
       {/* Mascot in background */}
-      <div className="absolute right-0 top-0 h-full w-1/2 opacity-20 parallax-element" style={{
-      backgroundImage: `url(${mascot})`,
-      backgroundSize: 'contain',
-      backgroundPosition: 'center right',
-      backgroundRepeat: 'no-repeat'
-    }} />
+      <div
+        className="absolute right-0 top-0 h-full w-1/2 opacity-20 parallax-element"
+        style={{
+          backgroundImage: `url(${mascot})`,
+          backgroundSize: 'contain',
+          backgroundPosition: 'center right',
+          backgroundRepeat: 'no-repeat'
+        }}
+      />
 
       {/* Main content */}
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
@@ -51,6 +75,7 @@ const HeroSection = () => {
           <ChevronDown size={32} />
         </button>
       </div>
-    </section>;
+    </section>
+  );
 };
 export default HeroSection;

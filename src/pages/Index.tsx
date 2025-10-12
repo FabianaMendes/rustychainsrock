@@ -5,7 +5,7 @@ import WhyRustySection from '@/components/WhyRustySection';
 import BandMembersSection from '@/components/BandMembersSection';
 import VideosSection from '@/components/VideosSection';
 import MediaKitSection from '@/components/MediaKitSection';
-import TestimonialsSection from '@/components/TestimonialsSection';
+// import TestimonialsSection from '@/components/TestimonialsSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 
