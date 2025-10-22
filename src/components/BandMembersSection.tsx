@@ -1,7 +1,10 @@
 import { Guitar, Mic, Music, Users } from 'lucide-react';
 import bandPhoto from '@/assets/band-photo.png';
+import { useEffect, useState } from 'react';
 
 const BandMembersSection = () => {
+  const [openTooltip, setOpenTooltip] = useState<number>(-1);
+
   const members = [{
     name: "Lucas Botelho",
     role: "Vocalista",
@@ -11,7 +14,7 @@ const BandMembersSection = () => {
     position: "left-[33%] top-[13%]",
     tooltipPosition: "-translate-x-1/2"
   }, {
-    name: "Raphael Danneman", 
+    name: "Raphael Dannemann", 
     role: "Guitarrista",
     icon: <Guitar className="text-rust-primary" size={32} />,
     description: "12 anos de experiência na guitarra. Influências: Alice in Chains, Tool e Black Sabbath.",
@@ -36,6 +39,17 @@ const BandMembersSection = () => {
     tooltipPosition: "-translate-x-2/3"
   }];
 
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      const target = e.target as HTMLElement
+      if (target && target.getAttribute('data-component') !== 'tooltip-trigger') {
+        return setOpenTooltip(-1)
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
   return <section className="section-grunge bg-metal-dark/10">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
@@ -59,9 +73,20 @@ const BandMembersSection = () => {
                   className={`absolute ${member.position} group/member`}
                 >
                   <div className="relative group/member">
-                    <div className="w-4 h-4 bg-rust-primary rounded-full animate-pulse cursor-pointer hover:scale-140 transition-transform duration-300"/>
+                    <div
+                      className="w-4 h-4 bg-rust-primary rounded-full animate-pulse cursor-pointer hover:scale-140 transition-transform duration-300"
+                      onClick={() => setOpenTooltip(index)}
+                      data-component="tooltip-trigger"
+                      data-index={index}
+                    />
                     {/* Tooltip */}
-                    <div className={`absolute bottom-6 ${member.tooltipPosition} left-1/2 transform hidden group-hover/member:block transition-opacity duration-300 z-10`}>
+                    <div className={
+                      `absolute bottom-6 left-1/2 transform transition-opacity duration-300 z-10
+                        ${member.tooltipPosition}
+                        group-hover/member:block
+                        ${openTooltip === index ? "block" : "hidden"}`
+                      }
+                    >
                       <div className="bg-background/95 border border-rust-primary/30 rounded-lg p-3 min-w-64 backdrop-blur-sm">
                         <div className="flex items-center gap-2 mb-2">
                           {member.icon}
@@ -75,7 +100,6 @@ const BandMembersSection = () => {
                       </div>
                     </div>
                   </div>
-
                 </div>
               ))}
             </div>

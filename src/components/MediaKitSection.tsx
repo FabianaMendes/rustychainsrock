@@ -25,14 +25,14 @@ const MediaKitSection = () => {
               
               <div className="flex items-center justify-between text-sm text-muted-foreground mb-6">
                 <span>Formato: PDF</span>
-                <span>Tamanho: ~2.5MB</span>
+                <span>Tamanho: ~2.7MB</span>
                 <span>Atualizado: Dez 2024</span>
               </div>
               
-              <button className="btn-hero w-full flex items-center justify-center">
+              <a href="/media/Media_Kit_Rusty_Chains_20251012.pdf" download="Media_Kit_Rusty_Chains_20251012.pdf" className="btn-hero w-full flex items-center justify-center">
                 <Download className="mr-2" size={20} />
                 Download Media Kit
-              </button>
+              </a>
             </div>
 
             <div className="card-grunge">
