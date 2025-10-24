@@ -60,7 +60,7 @@ const Header = () => {
         </nav>
 
         <a
-          href="https://wa.me/5534999999999?text=Olá! Gostaria de contratar a Rusty Chains para um evento."
+          href="https://wa.me/5534991510660?text=Olá! Gostaria de contratar a Rusty Chains para um evento."
           target="_blank"
           rel="noopener noreferrer"
           className="btn-hero text-sm px-6 py-2"

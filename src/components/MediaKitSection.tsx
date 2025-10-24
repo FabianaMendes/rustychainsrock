@@ -58,7 +58,7 @@ const MediaKitSection = () => {
                 </div>
               </div>
               
-              <a href="https://wa.me/5534999999999?text=Olá! Gostaria de informações sobre booking da Rusty Chains." target="_blank" rel="noopener noreferrer" className="btn-hero w-full mt-6 inline-block text-center">
+              <a href="https://wa.me/5534991510660?text=Olá! Gostaria de informações sobre booking da Rusty Chains." target="_blank" rel="noopener noreferrer" className="btn-hero w-full mt-6 inline-block text-center">
                 Solicitar Orçamento
               </a>
             </div>
